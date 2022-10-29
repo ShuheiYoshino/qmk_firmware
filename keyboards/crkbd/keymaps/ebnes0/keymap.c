@@ -41,19 +41,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	KC_TAB, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC,                KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_TILD,
 	KC_LCTL, KC_NO, KC_F5, KC_F6, KC_F7, KC_F8,                      KC_PLUS, KC_LCBR, KC_RCBR, KC_LT, KC_GT, KC_PIPE,
 	KC_LSFT, KC_NO, KC_F9, KC_F10, KC_F11, KC_F12,                   KC_PEQL, KC_NO, KC_NO, KC_NO, KC_NO, KC_BSPC,
-	     KC_LALT, KC_TRNS, KC_TRNS,          KC_ENT, MO(_ADJUST), KC_RALT
+	     KC_LALT, KC_LGUI, KC_TRNS,          MO(_ADJUST), KC_LGUI, KC_RALT
   ),
 
 	[_RAISE] = LAYOUT_split_3x6_3(
 	KC_NO, KC_P1, KC_P2, KC_P3, KC_P4, KC_P5,              KC_NO, KC_NO, KC_UP, KC_NO, KC_NO, KC_NO,
 	KC_NO, KC_P6, KC_P7, KC_P8, KC_P9, KC_P0,              KC_NO, KC_LEFT, KC_DOWN, KC_RGHT, KC_NO, KC_NO,
 	KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,              KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-	        KC_LALT, MO(_ADJUST), KC_SPC,                  KC_TRNS, KC_LGUI, KC_RALT
+	        KC_LALT, KC_LGUI, MO(_ADJUST),                  KC_TRNS, KC_LGUI, KC_RALT
   ),
 
 	[_ADJUST] = LAYOUT_split_3x6_3(
-	QK_BOOT, RGB_M_P, RGB_M_R, RGB_M_G, RGB_M_SN, RGB_M_K,            KC_BTN1, KC_BTN2, KC_NO, KC_NO, KC_NO, KC_NO,
-	RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, KC_MUTE, KC_VOLU,             KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, KC_NO, KC_NO,
+	QK_BOOT, RGB_M_P, RGB_M_R, RGB_M_G, RGB_M_SN, RGB_M_K,            KC_NO, KC_BTN1, KC_MS_U, KC_BTN2, KC_NO, KC_NO,
+	RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, KC_MUTE, KC_VOLU,             KC_NO, KC_MS_L, KC_MS_D, KC_MS_R, KC_NO, KC_NO,
 	RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, KC_MSTP, KC_VOLD,             KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
 	        KC_LGUI, KC_TRNS, KC_SPC,                              KC_ENT, KC_TRNS, KC_RALT
   )
