@@ -22,6 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 enum custom_keycodes {
     L_COMMAND,
     R_COMMAND,
+    SCREEN_SHOT,
 };
 
 #define _BASE 0
@@ -40,7 +41,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[_LOWER] = LAYOUT_split_3x6_3(
 	KC_TAB, KC_EXLM, KC_AT, KC_HASH, KC_DLR, KC_PERC,                KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_TILD,
 	KC_LCTL, KC_NO, KC_F5, KC_F6, KC_F7, KC_F8,                      KC_PLUS, KC_LCBR, KC_RCBR, KC_LT, KC_GT, KC_PIPE,
-	KC_LSFT, KC_NO, KC_F9, KC_F10, KC_F11, KC_F12,                   KC_PEQL, KC_NO, KC_NO, KC_NO, KC_NO, KC_BSPC,
+	KC_LSFT, KC_NO, KC_F9, KC_F10, KC_F11, KC_F12,                   KC_PEQL, KC_LBRC, KC_RBRC, KC_NO, KC_NO, KC_BSPC,
 	     KC_LALT, KC_LGUI, KC_TRNS,          MO(_ADJUST), KC_LGUI, KC_RALT
   ),
 
@@ -52,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
 	[_ADJUST] = LAYOUT_split_3x6_3(
-	KC_NO, RGB_M_P, RGB_M_R, RGB_M_G, RGB_M_SN, RGB_M_K,            KC_NO, KC_BTN1, KC_MS_U, KC_BTN2, KC_NO, KC_NO,
+	KC_NO, RGB_M_P, RGB_M_R, RGB_M_G, RGB_M_SN, RGB_M_K,            KC_NO, KC_BTN1, KC_MS_U, KC_BTN2, KC_NO, SCREEN_SHOT,
 	RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, KC_MUTE, KC_VOLU,             KC_NO, KC_MS_L, KC_MS_D, KC_MS_R, KC_NO, KC_NO,
 	RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, KC_MSTP, KC_VOLD,             KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
 	        KC_LGUI, KC_TRNS, KC_SPC,                              KC_ENT, KC_TRNS, KC_RALT
@@ -198,6 +199,20 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                   unregister_code(KC_LANG1);
               }
               r_command_pressed = false;
+          }
+          return false;
+          break;
+      case SCREEN_SHOT:
+          if (record->event.pressed) {
+              // キーコード SCREEN_SHOT が押された時
+              register_code(KC_LGUI);
+              register_code(KC_LSFT);
+              register_code(KC_4);
+          } else {
+              // キーコード SCREEN_SHOT が放された時
+              unregister_code(KC_LGUI);
+              unregister_code(KC_LSFT);
+              unregister_code(KC_4);
           }
           return false;
           break;
